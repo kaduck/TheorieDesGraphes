@@ -22,6 +22,21 @@ namespace TheorieDesGraphes
         public static int CalculAretes(int n)
         {
             return n > 1 ? n + CalculAretes(n - 1) : 1;
-        }  
+        }
+
+        public static int CalculNbGrapheMax(int nbSommets, int nbAretes)
+        {
+            int nbGraphe = 0;
+            int i = 0;
+            while(nbGraphe == 0)
+            {
+                i++;
+                if (nbAretes <= CalculAretes(nbSommets - i) && nbAretes > CalculAretes(nbSommets - i - 1))
+                {
+                    nbGraphe = i;
+                }
+            }
+            return nbGraphe;
+        }
     }
 }

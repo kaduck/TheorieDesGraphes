@@ -15,5 +15,6 @@ namespace TheorieDesGraphes
         }
         public Sommet Origine { get; private set; }
         public Sommet Destination { get; private set; }
+        public bool Marque { get; set; }
     }
 }

@@ -30,23 +30,27 @@
         {
             this.btGenerer = new System.Windows.Forms.Button();
             this.gbGeneration = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbConnexe = new System.Windows.Forms.CheckBox();
-            this.tbSommets = new System.Windows.Forms.NumericUpDown();
             this.tbAretes = new System.Windows.Forms.NumericUpDown();
+            this.tbSommets = new System.Windows.Forms.NumericUpDown();
+            this.cbConnexe = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvMatrice = new System.Windows.Forms.DataGridView();
+            this.A = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.uC_Graphe = new TheorieDesGraphes.UC_Graphe();
+            this.lbInstruction = new System.Windows.Forms.Label();
             this.gbGeneration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSommets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAretes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSommets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatrice)).BeginInit();
             this.SuspendLayout();
             // 
             // btGenerer
             // 
-            this.btGenerer.Location = new System.Drawing.Point(216, 25);
+            this.btGenerer.Location = new System.Drawing.Point(216, 14);
             this.btGenerer.Name = "btGenerer";
-            this.btGenerer.Size = new System.Drawing.Size(148, 69);
+            this.btGenerer.Size = new System.Drawing.Size(148, 30);
             this.btGenerer.TabIndex = 0;
             this.btGenerer.Text = "Générer";
             this.btGenerer.UseVisualStyleBackColor = true;
@@ -54,6 +58,8 @@
             // 
             // gbGeneration
             // 
+            this.gbGeneration.Controls.Add(this.lbInstruction);
+            this.gbGeneration.Controls.Add(this.dgvMatrice);
             this.gbGeneration.Controls.Add(this.uC_Graphe);
             this.gbGeneration.Controls.Add(this.tbAretes);
             this.gbGeneration.Controls.Add(this.tbSommets);
@@ -69,23 +75,32 @@
             this.gbGeneration.TabStop = false;
             this.gbGeneration.Text = "Graphe";
             // 
-            // label1
+            // tbAretes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Connexe :";
+            this.tbAretes.Location = new System.Drawing.Point(161, 74);
+            this.tbAretes.Name = "tbAretes";
+            this.tbAretes.Size = new System.Drawing.Size(37, 20);
+            this.tbAretes.TabIndex = 6;
+            this.tbAretes.Visible = false;
             // 
-            // label2
+            // tbSommets
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nombre de sommets :";
+            this.tbSommets.Location = new System.Drawing.Point(148, 23);
+            this.tbSommets.Name = "tbSommets";
+            this.tbSommets.Size = new System.Drawing.Size(37, 20);
+            this.tbSommets.TabIndex = 5;
+            this.tbSommets.ValueChanged += new System.EventHandler(this.tbSommets_ValueChanged);
+            // 
+            // cbConnexe
+            // 
+            this.cbConnexe.AutoSize = true;
+            this.cbConnexe.Enabled = false;
+            this.cbConnexe.Location = new System.Drawing.Point(161, 25);
+            this.cbConnexe.Name = "cbConnexe";
+            this.cbConnexe.Size = new System.Drawing.Size(15, 14);
+            this.cbConnexe.TabIndex = 4;
+            this.cbConnexe.UseVisualStyleBackColor = true;
+            this.cbConnexe.Visible = false;
             // 
             // label3
             // 
@@ -95,37 +110,78 @@
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Nombre d\'arêtes";
+            this.label3.Visible = false;
             // 
-            // cbConnexe
+            // label2
             // 
-            this.cbConnexe.AutoSize = true;
-            this.cbConnexe.Location = new System.Drawing.Point(161, 25);
-            this.cbConnexe.Name = "cbConnexe";
-            this.cbConnexe.Size = new System.Drawing.Size(15, 14);
-            this.cbConnexe.TabIndex = 4;
-            this.cbConnexe.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nombre de sommets :";
             // 
-            // tbSommets
+            // label1
             // 
-            this.tbSommets.Location = new System.Drawing.Point(161, 48);
-            this.tbSommets.Name = "tbSommets";
-            this.tbSommets.Size = new System.Drawing.Size(37, 20);
-            this.tbSommets.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Connexe :";
+            this.label1.Visible = false;
             // 
-            // tbAretes
+            // dgvMatrice
             // 
-            this.tbAretes.Location = new System.Drawing.Point(161, 74);
-            this.tbAretes.Name = "tbAretes";
-            this.tbAretes.Size = new System.Drawing.Size(37, 20);
-            this.tbAretes.TabIndex = 6;
+            this.dgvMatrice.AllowUserToAddRows = false;
+            this.dgvMatrice.AllowUserToDeleteRows = false;
+            this.dgvMatrice.AllowUserToResizeColumns = false;
+            this.dgvMatrice.AllowUserToResizeRows = false;
+            this.dgvMatrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMatrice.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvMatrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMatrice.ColumnHeadersHeight = 25;
+            this.dgvMatrice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMatrice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.A});
+            this.dgvMatrice.Location = new System.Drawing.Point(10, 51);
+            this.dgvMatrice.MultiSelect = false;
+            this.dgvMatrice.Name = "dgvMatrice";
+            this.dgvMatrice.ReadOnly = true;
+            this.dgvMatrice.RowHeadersWidth = 25;
+            this.dgvMatrice.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvMatrice.Size = new System.Drawing.Size(354, 168);
+            this.dgvMatrice.TabIndex = 8;
+            this.dgvMatrice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatrice_CellClick);
+            // 
+            // A
+            // 
+            this.A.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A.HeaderText = "A";
+            this.A.MinimumWidth = 25;
+            this.A.Name = "A";
+            this.A.ReadOnly = true;
+            this.A.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.A.Width = 25;
             // 
             // uC_Graphe
             // 
             this.uC_Graphe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uC_Graphe.Location = new System.Drawing.Point(10, 106);
+            this.uC_Graphe.Location = new System.Drawing.Point(10, 225);
             this.uC_Graphe.Name = "uC_Graphe";
-            this.uC_Graphe.Size = new System.Drawing.Size(354, 386);
+            this.uC_Graphe.Size = new System.Drawing.Size(354, 267);
             this.uC_Graphe.TabIndex = 7;
+            this.uC_Graphe.Click += new System.EventHandler(this.uC_Graphe_Click);
+            // 
+            // lbInstruction
+            // 
+            this.lbInstruction.AutoSize = true;
+            this.lbInstruction.Location = new System.Drawing.Point(13, 477);
+            this.lbInstruction.Name = "lbInstruction";
+            this.lbInstruction.Size = new System.Drawing.Size(113, 13);
+            this.lbInstruction.TabIndex = 9;
+            this.lbInstruction.Text = "Choisissez un point A :";
             // 
             // Main
             // 
@@ -137,8 +193,9 @@
             this.Text = "Main";
             this.gbGeneration.ResumeLayout(false);
             this.gbGeneration.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSommets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAretes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSommets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,5 +211,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private UC_Graphe uC_Graphe;
+        private System.Windows.Forms.DataGridView dgvMatrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn A;
+        private System.Windows.Forms.Label lbInstruction;
     }
 }

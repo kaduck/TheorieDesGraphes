@@ -21,15 +21,16 @@ namespace TheorieDesGraphes
         {
             return a.Libelle != b.Libelle;
         }
-        public Point Position { get; private set; }
+        public Point? Position ;
         public string Libelle { get; private set; }
         public bool Marque { get; set; }
-        public Sommet(string Libelle)
+        public Sommet(string Libelle,bool aleatoire=false)
         {
 
             this.Libelle = Libelle;
             Marque = false;
-            Position = new Point(Fonctions.NombreAleatoire(1000), Fonctions.NombreAleatoire(1000));
+            if (aleatoire)
+                Position = new Point(Fonctions.NombreAleatoire(1000), Fonctions.NombreAleatoire(1000));
         }
     }
 }
