@@ -13,22 +13,21 @@ namespace TheorieDesGraphes
         /// <summary>
         /// Surcharge de l'opérateur d'équivalence on regarde le libelle
         /// </summary>
-        public static bool operator ==(Sommet a, Sommet b)
+        public bool Egal(Sommet b)
         {
-            return a.Libelle == b.Libelle;
+            return Libelle == b.Libelle;
         }
-        public static bool operator !=(Sommet a, Sommet b)
-        {
-            return a.Libelle != b.Libelle;
-        }
+
         public Point? Position ;
         public string Libelle { get; private set; }
-        public bool Marque { get; set; }
+        public EnumMarque Marque { get; set; }
+        public int Previsite { get; set; }
+        public int Hauteur { get; set; }
         public Sommet(string Libelle,bool aleatoire=false)
         {
 
             this.Libelle = Libelle;
-            Marque = false;
+            Marque = EnumMarque.NonMarque;
             if (aleatoire)
                 Position = new Point(Fonctions.NombreAleatoire(1000), Fonctions.NombreAleatoire(1000));
         }

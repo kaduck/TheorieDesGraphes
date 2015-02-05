@@ -19,90 +19,90 @@ namespace TheorieDesGraphes
 
         public Graphe(int nbSommet, int nbArete, bool connexe)
         {
-            listeSommet = new List<Sommet>();
-            listeArete = new List<Arete>();
-            for (int i = 0; i < nbSommet; i++)
-            {
-                AjouterSommet(new Sommet(((char)(i + 65)).ToString()));
-            }
-            if (connexe)
-            {
-                #region Connexe
-                for (int i = 0; i < nbArete; i++)
-                {
-                    List<Sommet> sommetsNonMarques = listeSommet.Where(t => !t.Marque).ToList();
-                    List<Sommet> sommetsMarques = listeSommet.Where(t => t.Marque).ToList();
-                    int tailleNonLies = sommetsNonMarques.Count;
-                    int tailleLies = sommetsMarques.Count;
-                    Sommet sommetOrigine;
+            //listeSommet = new List<Sommet>();
+            //listeArete = new List<Arete>();
+            //for (int i = 0; i < nbSommet; i++)
+            //{
+            //    AjouterSommet(new Sommet(((char)(i + 65)).ToString()));
+            //}
+            //if (connexe)
+            //{
+            //    #region Connexe
+            //    for (int i = 0; i < nbArete; i++)
+            //    {
+            //        List<Sommet> sommetsNonMarques = listeSommet.Where(t => !t.Marque).ToList();
+            //        List<Sommet> sommetsMarques = listeSommet.Where(t => t.Marque).ToList();
+            //        int tailleNonLies = sommetsNonMarques.Count;
+            //        int tailleLies = sommetsMarques.Count;
+            //        Sommet sommetOrigine;
 
-                    if (tailleNonLies != 0)
-                    {
-                        if (i == 0)
-                        {
-                            sommetOrigine = sommetsNonMarques[rnd.Next(tailleNonLies)];
-                            sommetsNonMarques.Remove(sommetOrigine);
-                            tailleNonLies -= 1;
-                        }
-                        else
-                        {
-                            sommetOrigine = sommetsMarques[rnd.Next(tailleLies)];
-                        }
-                        LierSommet(sommetOrigine, sommetsNonMarques[rnd.Next(tailleNonLies)]);
-                    }
-                    else
-                    {
-                        List<Sommet> sommetNonLies = new List<Sommet>();
-                        do
-                        {
-                            sommetOrigine = listeSommet[rnd.Next(tailleLies)];
-                            List<Sommet> sommetLies = RecupererSommetsLies(sommetOrigine);
-                            sommetNonLies = listeSommet.Except(sommetLies).ToList();
-                        } while (sommetNonLies.Count == 0);
-                        LierSommet(sommetOrigine, sommetNonLies[rnd.Next(sommetNonLies.Count())]);
-                    }
-                }
-                #endregion
-            }
-            else
-            {
-                #region Non connexe
-                int nbGrapheMax = Fonctions.CalculNbGrapheMax(nbSommet, nbArete);
-                int nbGrapheMin = (nbSommet - nbArete < 2) ? 2 : nbSommet - nbArete;
-                int nbGraphe = rnd.Next(nbGrapheMin, nbGrapheMax);
-                int nbSommetRestant = nbSommet;
-                int nbSommetMarque = 0;
-                int nbSommetGraphe = nbSommetRestant - nbGraphe + 1;
-                int?[,] listeGraphes = new int?[nbGraphe, nbSommetGraphe];
+            //        if (tailleNonLies != 0)
+            //        {
+            //            if (i == 0)
+            //            {
+            //                sommetOrigine = sommetsNonMarques[rnd.Next(tailleNonLies)];
+            //                sommetsNonMarques.Remove(sommetOrigine);
+            //                tailleNonLies -= 1;
+            //            }
+            //            else
+            //            {
+            //                sommetOrigine = sommetsMarques[rnd.Next(tailleLies)];
+            //            }
+            //            LierSommet(sommetOrigine, sommetsNonMarques[rnd.Next(tailleNonLies)]);
+            //        }
+            //        else
+            //        {
+            //            List<Sommet> sommetNonLies = new List<Sommet>();
+            //            do
+            //            {
+            //                sommetOrigine = listeSommet[rnd.Next(tailleLies)];
+            //                List<Sommet> sommetLies = RecupererSommetsLies(sommetOrigine);
+            //                sommetNonLies = listeSommet.Except(sommetLies).ToList();
+            //            } while (sommetNonLies.Count == 0);
+            //            LierSommet(sommetOrigine, sommetNonLies[rnd.Next(sommetNonLies.Count())]);
+            //        }
+            //    }
+            //    #endregion
+            //}
+            //else
+            //{
+            //    #region Non connexe
+            //    int nbGrapheMax = Fonctions.CalculNbGrapheMax(nbSommet, nbArete);
+            //    int nbGrapheMin = (nbSommet - nbArete < 2) ? 2 : nbSommet - nbArete;
+            //    int nbGraphe = rnd.Next(nbGrapheMin, nbGrapheMax);
+            //    int nbSommetRestant = nbSommet;
+            //    int nbSommetMarque = 0;
+            //    int nbSommetGraphe = nbSommetRestant - nbGraphe + 1;
+            //    int?[,] listeGraphes = new int?[nbGraphe, nbSommetGraphe];
 
-                for (int j = 0; j < nbGraphe; j++)
-                {
-                    if (j < nbGraphe - 1)
-                        nbSommetGraphe = rnd.Next(1, nbSommetRestant - nbGraphe + 1);
-                    else
-                        nbSommetGraphe = nbSommet - nbSommetMarque;
-                    for (int k = 0; k < nbSommetGraphe; k++)
-                    {
-                        listeGraphes[j, k] = nbSommetMarque;
-                        nbSommetMarque++;
-                    }
-                }
+            //    for (int j = 0; j < nbGraphe; j++)
+            //    {
+            //        if (j < nbGraphe - 1)
+            //            nbSommetGraphe = rnd.Next(1, nbSommetRestant - nbGraphe + 1);
+            //        else
+            //            nbSommetGraphe = nbSommet - nbSommetMarque;
+            //        for (int k = 0; k < nbSommetGraphe; k++)
+            //        {
+            //            listeGraphes[j, k] = nbSommetMarque;
+            //            nbSommetMarque++;
+            //        }
+            //    }
 
-                for (int j = 0; j < nbGraphe; j++)
-                {
-                    int nbAretesMarque = 0;
-                    for (int k = 0; k < listeGraphes.GetLength(1) ; k++)
-                    {
-                        int test = listeGraphes.GetLength(1);
-                        if (listeGraphes[j, k].HasValue && k+1<listeGraphes.GetLength(1) && listeGraphes[j, k + 1].HasValue)
-                        {
-                            LierSommet(listeSommet[listeGraphes[j, k].Value], listeSommet[listeGraphes[j, k + 1].Value]);
-                            nbAretesMarque++;
-                        }
-                    }
-                }
-                #endregion
-            }
+            //    for (int j = 0; j < nbGraphe; j++)
+            //    {
+            //        int nbAretesMarque = 0;
+            //        for (int k = 0; k < listeGraphes.GetLength(1) ; k++)
+            //        {
+            //            int test = listeGraphes.GetLength(1);
+            //            if (listeGraphes[j, k].HasValue && k+1<listeGraphes.GetLength(1) && listeGraphes[j, k + 1].HasValue)
+            //            {
+            //                LierSommet(listeSommet[listeGraphes[j, k].Value], listeSommet[listeGraphes[j, k + 1].Value]);
+            //                nbAretesMarque++;
+            //            }
+            //        }
+            //    }
+            //    #endregion
+            //}
         }
 
         private List<Sommet> RecupererSommetsLies(Sommet sommet)
@@ -124,14 +124,14 @@ namespace TheorieDesGraphes
             if (!listeSommet.Exists(t => t == sommet))
                 listeSommet.Add(sommet);
         }
-        public void LierSommet(Sommet origine, Sommet destination)
+        public List<Sommet> ObtenirSommetsAdjacents(Sommet sommet)
         {
-            if (!listeArete.Exists(t => (t.Origine == origine && t.Destination == destination) || (t.Origine == destination && t.Destination == origine)))
-            {
-                listeArete.Add(new Arete(origine, destination));
-                origine.Marque = true;
-                destination.Marque = true;
-            }
+            List<Arete> listeAdjacents = listeArete.Where(t => t.Origine == sommet || t.Destination == sommet).ToList();
+            List<Sommet> sommetAdjacents = listeArete.Where(t=>t.Origine == sommet).Select(t => t.Destination).Where(t => t.Marque == EnumMarque.NonMarque).ToList();
+            sommetAdjacents.AddRange(listeArete.Where(t => t.Destination == sommet).Select(t => t.Origine).Where(t => t.Marque == EnumMarque.NonMarque).ToList());
+            sommetAdjacents = sommetAdjacents.Distinct().ToList();
+            return sommetAdjacents;
+
         }
     }
 }

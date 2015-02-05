@@ -16,3 +16,17 @@ C:\Users\Vincent\Documents\Visual Studio 2013\Projects\TheorieDesGraphes\Theorie
 C:\Users\Vincent\Documents\Visual Studio 2013\Projects\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.exe
 C:\Users\Vincent\Documents\Visual Studio 2013\Projects\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.pdb
 C:\Users\Vincent\Documents\Visual Studio 2013\Projects\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.UC_Graphe.resources
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\TheorieDesGraphes.exe.config
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.exe
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.pdb
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.csprojResolveAssemblyReference.cache
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.Main.resources
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.Properties.Resources.resources
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.UC_Graphe.resources
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\obj\Debug\TheorieDesGraphes.csproj.GenerateResource.Cache
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\TheorieDesGraphes.exe
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\TheorieDesGraphes.pdb
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\QuickGraph.xml
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\QuickGraph.Data.xml
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\QuickGraph.Graphviz.xml
+E:\Projet\TheorieDesGraphes\TheorieDesGraphes\bin\Debug\QuickGraph.Serialization.xml

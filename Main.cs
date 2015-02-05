@@ -47,9 +47,9 @@ namespace TheorieDesGraphes
         {
             Sommet sommet = ListeAttenteSommet.First();
 
-            graphe.listeSommet.First(t => t == sommet).Position = Position;
+            graphe.listeSommet.First(t => t.Egal(sommet)).Position = Position;
             ListeAttenteSommet.Remove(sommet);
-            sommet = graphe.listeSommet.First(t => t == sommet);
+            sommet = graphe.listeSommet.First(t => t.Egal(sommet));
 
             List<Sommet> sommetPositionees = graphe.listeSommet.Where(t => t.Position != null).ToList();
             int indexSource = ExtraireIndexMatrice(sommet);
@@ -58,7 +58,7 @@ namespace TheorieDesGraphes
                 int indexDest = ExtraireIndexMatrice(item);
                 if ((string)dgvMatrice.Rows[indexDest].Cells[indexSource].Value == "1")
                 {
-                    if (!listeAretes.Exists(t=>(t.Destination==sommet && t.Origine == item) || (t.Origine==sommet && t.Destination ==item)))
+                    if (!listeAretes.Exists(t=>(t.Destination.Egal(sommet) && t.Origine.Egal(item)) || (t.Origine.Egal(sommet) && t.Destination.Egal(item))))
                     graphe.listeArete.Add(new Arete(sommet, item));
                 }
             }
@@ -168,5 +168,24 @@ namespace TheorieDesGraphes
             #endregion
         }
         #endregion
+
+        private void btConnex_Click(object sender, EventArgs e)
+        {
+            if (Fonctions.TestConnexite(graphe))
+            {
+                MessageBox.Show("Connexe !");
+            }
+            else
+            {
+                MessageBox.Show("Pas connexe !");
+            }
+        }
+
+        private void tbSommetArticulation_Click(object sender, EventArgs e)
+        {
+            List<Sommet> listeSommets = Fonctions.SommetArticulation(graphe);
+            string text = "Les différents sommet d'articulations sont : " + string.Join(", ",listeSommets.SelectMany(t => t.Libelle).ToList());
+            MessageBox.Show(text);
+        }
     }
 }

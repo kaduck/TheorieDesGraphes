@@ -26,7 +26,7 @@ namespace TheorieDesGraphes
                 if (som.Position.HasValue)
                 {
                     Color couleur;
-                    if (!som.Marque)
+                    if (som.Marque== EnumMarque.NonMarque)
                         couleur = Color.Black;
                     else
                         couleur = Color.Red;
